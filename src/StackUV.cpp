@@ -3,16 +3,16 @@
 
 template <typename T>
 StackUV<T>::StackUV()
-	: item_size(0), front(0), rear(0), max_size(1)
+	: item_size(0), front(0), rear(0), max_size(10)
 {
-	stack_array = new int[max_size];
+	stack_array = T[max_size];
 }
 
 template <typename T>
 StackUV<T>::StackUV(int size)
 	: item_size(0), front(0), rear(0), max_size(size)
 {
-	stack_array = new int[max_size];
+	stack_array = T[max_size];
 }
 
 template <typename T>
@@ -25,7 +25,7 @@ void StackUV<T>::push(T data)
 	}
 	else if (item_size == max_size)
 	{
-		int* stack_array_2 = new int[max_size * 2];
+		int* stack_array_2 = T[max_size * 2];
 		for (int i = front; i < rear; i++)
 		{
 			stack_array_2[i] = stack_array[i];
